@@ -1,9 +1,12 @@
 import React, { FC } from 'react';
+import Navigation from './navigation/Navigation';
+import LandingPage from './landingPage/LandingPage';
 
 const App: FC = () => {
   return (
     <div className="app">
-      <h1>Neru</h1>
+      <Navigation />
+      <LandingPage />
     </div>
   );
 };
