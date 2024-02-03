@@ -1,10 +1,12 @@
 // bootstrap import
+@import '../../node_modules//bootstrap/scss//bootstrap.scss';
 
 // base imports
 
 // util imports
 
 // component imports
+@import 'components/navigation/navigation';
 
 *,
 *::before,
