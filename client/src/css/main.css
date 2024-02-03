@@ -11937,6 +11937,13 @@ textarea.form-control-lg {
 .navigation__link:visited {
   color: #e4e5f1;
 }
+.navigation__button {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 4px 1rem;
+  background-color: #e4e5f1;
+  color: #484b6a;
+}
 
 *,
 *::before,
