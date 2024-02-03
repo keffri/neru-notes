@@ -1,0 +1,29 @@
+.navigation {
+  background-color: #484b6a;
+
+  &__brand {
+    font-weight: 300;
+    font-size: 1.75rem;
+    color: #e4e5f1;
+
+    &:hover {
+      color: #e4e5f1;
+    }
+  }
+
+  &__link {
+    color: #e4e5f1;
+    margin: 0 1rem;
+    font-size: 1.25rem;
+    text-decoration: none;
+
+    &:hover {
+      color: #e4e5f1;
+      text-decoration: underline;
+    }
+
+    &:visited {
+      color: #e4e5f1;
+    }
+  }
+}
