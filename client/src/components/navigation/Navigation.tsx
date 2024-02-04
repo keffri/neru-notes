@@ -2,7 +2,11 @@ import React, { FC } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const Navigation: FC = () => {
+export interface NavProps {
+  openAuthModal: () => void;
+}
+
+const Navigation: FC<NavProps> = (props: NavProps) => {
   return (
     <Navbar expand="lg" className="navigation">
       <Container>
