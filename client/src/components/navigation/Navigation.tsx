@@ -21,7 +21,11 @@ const Navigation: FC<NavProps> = (props: NavProps) => {
               Features
             </Nav.Link>
             <Nav.Link className="navigation__link">
-              <button data-testid="nav_button" className="navigation__button">
+              <button
+                data-testid="nav_button"
+                className="navigation__button"
+                onClick={() => props.openAuthModal()}
+              >
                 Get started!
               </button>
             </Nav.Link>
