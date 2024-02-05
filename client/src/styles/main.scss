@@ -2,12 +2,15 @@
 @import '../../node_modules//bootstrap/scss//bootstrap.scss';
 
 // base imports
+@import 'base/reset';
 
 // util imports
 @import 'utils/custom';
 
 // component imports
 @import 'components/navigation/navigation';
+@import 'components/auth/auth';
+@import 'components/landingPage/landingPage';
 
 *,
 *::before,
