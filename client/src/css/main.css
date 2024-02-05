@@ -11905,6 +11905,149 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+.small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+.mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 .navbar-collapse {
   justify-content: flex-end;
 }
@@ -11941,6 +12084,67 @@ textarea.form-control-lg {
   border: none;
   border-radius: 0.5rem;
   padding: 4px 1rem;
+  background-color: #e4e5f1;
+  color: #484b6a;
+}
+
+.auth {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 1rem;
+  border: solid 2px #484b6a;
+  min-height: 475px;
+  min-width: 450px;
+  transform: translate(-50%, -50%);
+  background-color: #9394a5;
+  color: #e4e5f1;
+}
+.auth__title {
+  font-size: 2rem;
+  padding: 1rem 0;
+  text-decoration: underline;
+}
+.auth__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: #e4e5f1;
+  outline-color: transparent;
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+}
+.auth__form, .auth__div {
+  display: flex;
+  flex-direction: column;
+}
+.auth__form input, .auth__div input {
+  width: 20rem;
+  margin: 4px 0;
+  padding: 4px 0;
+}
+.auth--text {
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.auth__error {
+  color: red;
+  margin: 5px;
+}
+
+.landing {
+  width: 100%;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
   background-color: #e4e5f1;
   color: #484b6a;
 }
