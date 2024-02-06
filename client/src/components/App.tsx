@@ -22,7 +22,10 @@ const App: FC = () => {
         <Navigation openAuthModal={openAuthModal} />
         {showAuthModal && <Auth closeAuthModal={closeAuthModal} />}
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route
+            path="/"
+            element={<LandingPage openAuthModal={openAuthModal} />}
+          />
           <Route path="/features" element={<Features />} />
         </Routes>
       </div>
