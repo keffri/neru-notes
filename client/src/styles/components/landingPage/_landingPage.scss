@@ -7,4 +7,53 @@
   justify-content: space-evenly;
   background-color: #e4e5f1;
   color: #484b6a;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 3rem;
+    text-decoration: underline;
+  }
+
+  &__description {
+    padding-top: 2rem;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    min-width: 20rem;
+    padding-bottom: 2rem;
+    font-size: 2rem;
+    margin: 3rem 0rem;
+
+    li {
+      margin: 0rem 1rem;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &--medium {
+    font-size: 1.25rem;
+  }
+
+  &__icon {
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+
+  &__button {
+    margin-top: 5rem;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    background-color: #484b6a;
+    color: #e4e5f1;
+  }
 }
