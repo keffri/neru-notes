@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-
 import { EditNote, Search, Bedtime } from '@mui/icons-material';
 
 interface ModalProps {
