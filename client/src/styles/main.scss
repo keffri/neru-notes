@@ -12,6 +12,7 @@
 @import 'components/auth/auth';
 @import 'components/landingPage/landingPage';
 @import 'components/features/features.scss';
+@import 'components/features/featuresCard';
 
 *,
 *::before,
@@ -29,3 +30,4 @@ body,
 }
 
 // media query import
+@import 'media';
