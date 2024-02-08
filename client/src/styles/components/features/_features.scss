@@ -7,4 +7,16 @@
   justify-content: space-evenly;
   background-color: #e4e5f1;
   color: #484b6a;
+  overflow: auto;
+
+  &__title {
+    font-size: 3rem;
+    text-decoration: underline;
+    padding: 3rem 0;
+  }
+
+  &__container {
+    margin: 0.5rem;
+    display: flex;
+  }
 }
