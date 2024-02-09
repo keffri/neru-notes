@@ -12101,8 +12101,8 @@ table {
   min-height: 475px;
   min-width: 450px;
   transform: translate(-50%, -50%);
-  background-color: #9394a5;
-  color: #e4e5f1;
+  background-color: #d2d3db;
+  color: #484b6a;
 }
 .auth__title {
   font-size: 2rem;
@@ -12113,7 +12113,7 @@ table {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-  color: #e4e5f1;
+  color: #484b6a;
   outline-color: transparent;
   border: none;
   background-color: transparent;
@@ -12132,6 +12132,9 @@ table {
   font-weight: bold;
   cursor: pointer;
   text-decoration: underline;
+}
+.auth__submit {
+  color: #484b6a;
 }
 .auth__error {
   color: red;
