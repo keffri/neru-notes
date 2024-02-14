@@ -12193,6 +12193,21 @@ table {
   color: #e4e5f1;
 }
 
+.home {
+  width: 100%;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e4e5f1;
+  color: #484b6a;
+}
+.home__title {
+  font-size: 3rem;
+  text-decoration: underline;
+  margin: 1rem 0;
+}
+
 .features {
   width: 100%;
   height: calc(100vh - 60px);
