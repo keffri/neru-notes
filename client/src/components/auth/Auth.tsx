@@ -1,15 +1,89 @@
 import React, { FC, useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 
+type User = {
+  email: string;
+};
 interface AuthProps {
   closeAuthModal: () => void;
+  user: User;
+  updateUser: (user: User) => void;
+  cookies: { [x: string]: any };
+  setCookie: (name: string, value: any) => void;
 }
+
+type ValidationError = {
+  body: string;
+  msg: string;
+  param: string;
+  value: string;
+};
 
 const Auth: FC<AuthProps> = (props: AuthProps) => {
   const [loggingIn, setLoggingIn] = useState(true);
+  const [authError, setAuthError] = useState('');
+  const [authInfo, setAuthInfo] = useState({
+    email: '',
+    password: '',
+    confirm_password: '',
+  });
+
+  const [emailError, setEmailError] = useState<ValidationError[]>([]);
+  const [passwordError, setPasswordError] = useState<ValidationError[]>([]);
+  const [confirmPasswordError, setConfirmPasswordError] = useState<
+    ValidationError[]
+  >([]);
 
   const switchAuth = (status: boolean) => {
+    setAuthError('');
     setLoggingIn(status);
+    setAuthInfo({
+      email: '',
+      password: '',
+      confirm_password: '',
+    });
+  };
+
+  const filterErrors = (errors: ValidationError[], paramName: string) => {
+    return errors.filter((error: ValidationError) => error.param === paramName);
+  };
+
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLInputElement>,
+    endpoint: string
+  ) => {
+    e.preventDefault();
+
+    const response = await fetch(
+      `${process.env.REACT_APP_SERVERURL}/${endpoint}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...authInfo }),
+      }
+    );
+
+    const data = await response.json();
+
+    if (data.errors) {
+      setEmailError(filterErrors(data.errors, 'email'));
+      setPasswordError(filterErrors(data.errors, 'password'));
+      setConfirmPasswordError(filterErrors(data.errors, 'confirm_password'));
+
+      return;
+    } else {
+      console.log('success');
+    }
+
+    if (data.detail) {
+      setAuthError(data.detail);
+    } else {
+      props.updateUser((props.user.email = data.email));
+      props.setCookie('Email', data.email);
+      props.setCookie('AuthToken', data.token);
+      props.closeAuthModal();
+      window.location.reload();
+    }
   };
 
   return (
@@ -28,18 +102,57 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
       </button>
       <form className="auth__form">
         <label htmlFor="email">Email:</label>
-        <input type="email" />
+        {emailError.length > 0 && emailError[0].msg && (
+          <p className="auth__error">
+            {emailError[0].msg === 'Invalid Value'
+              ? 'Please enter a valid email address.'
+              : emailError[0].msg}
+          </p>
+        )}
+        {authError === 'Email does not exist.' && (
+          <p className="auth__error">{authError}</p>
+        )}
+        <input
+          type="email"
+          value={authInfo.email}
+          onChange={(e) => setAuthInfo({ ...authInfo, email: e.target.value })}
+        />
+
         <label htmlFor="password">Password:</label>
-        <input type="password" />
+        {passwordError.length > 0 && passwordError[0].msg && (
+          <p className="auth__error">{passwordError[0].msg}</p>
+        )}
+        {authError === 'Incorrect password.' && (
+          <p className="auth__error">{authError}</p>
+        )}
+        <input
+          type="password"
+          value={authInfo.password}
+          onChange={(e) =>
+            setAuthInfo({ ...authInfo, password: e.target.value })
+          }
+          autoComplete="off"
+        />
         {!loggingIn && (
           <div className="auth__div">
             <label htmlFor="confirm_password">Confirm Password:</label>
-            <input type="password" autoComplete="off" />
+            {confirmPasswordError.length > 0 && confirmPasswordError[0].msg && (
+              <p className="auth__error">{confirmPasswordError[0].msg}</p>
+            )}
+            <input
+              type="password"
+              value={authInfo.confirm_password}
+              onChange={(e) =>
+                setAuthInfo({ ...authInfo, confirm_password: e.target.value })
+              }
+              autoComplete="off"
+            />
           </div>
         )}
         <input
           type="submit"
           className="auth__submit"
+          onClick={(e) => handleSubmit(e, loggingIn ? 'login' : 'signup')}
           value={loggingIn ? 'Log In' : 'Sign Up'}
         />
       </form>
