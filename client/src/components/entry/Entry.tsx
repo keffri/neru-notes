@@ -9,8 +9,8 @@ const Entry: FC<EntryProps> = (props: EntryProps) => {
     <section className="entry">
       {!props.cookies.AuthToken && (
         <div className="entry__fail">
-          <h2 className="vault__fail--center">
-            Please long in if you wish to view your logs.
+          <h2 className="entry__fail--center">
+            Please log in if you wish to create an entry.
           </h2>
         </div>
       )}
