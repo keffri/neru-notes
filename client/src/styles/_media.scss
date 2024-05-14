@@ -6,9 +6,9 @@
   .features {
     align-items: center;
 
-    &__title {
-      margin-top: 12.5rem;
-    }
+    // &__title {
+    //   margin-top: 12.5rem;
+    // }
 
     &__container {
       flex-direction: row;
@@ -18,10 +18,23 @@
   }
 }
 
-@media only screen and (max-width: 661px) {
-  .features {
-    &__title {
-      margin-top: 28rem;
-    }
+@media only screen and (max-width: 510px) {
+  .auth {
+    min-width: 350px;
   }
+
+  .landing__list {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 12.5rem;
+  }
+}
+
+@media only screen and (max-width: 661px) {
+  // .features {
+  //   &__title {
+  //     margin-top: 28rem;
+  //   }
+  // }
 }
