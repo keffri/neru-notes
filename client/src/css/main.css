@@ -12255,7 +12255,7 @@ table {
 
 .entry {
   width: 100%;
-  min-height: calc(100vh - 60px);
+  height: calc(100vh - 60px);
   padding: 1rem 0;
   display: flex;
   flex-direction: column;
@@ -12327,18 +12327,21 @@ body,
   .features {
     align-items: center;
   }
-  .features__title {
-    margin-top: 12.5rem;
-  }
   .features__container {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
   }
 }
-@media only screen and (max-width: 661px) {
-  .features__title {
-    margin-top: 28rem;
+@media only screen and (max-width: 510px) {
+  .auth {
+    min-width: 350px;
+  }
+  .landing__list {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 12.5rem;
   }
 }
 
