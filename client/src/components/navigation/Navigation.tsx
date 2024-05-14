@@ -32,12 +32,12 @@ const Navigation: FC<NavProps> = (props: NavProps) => {
               Home
             </Nav.Link>
             {props.authToken && (
-              <Nav.Link as={Link} to="#" className="navigation__link">
+              <Nav.Link as={Link} to="/entry" className="navigation__link">
                 Entry
               </Nav.Link>
             )}
             {props.authToken && (
-              <Nav.Link as={Link} to="#" className="navigation__link">
+              <Nav.Link as={Link} to="/view" className="navigation__link">
                 View
               </Nav.Link>
             )}

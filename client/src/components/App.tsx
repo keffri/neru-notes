@@ -6,6 +6,8 @@ import Auth from './auth/Auth';
 import LandingPage from './landingPage/LandingPage';
 import Home from './home/Home';
 import Features from './features/Features';
+import Entry from './entry/Entry';
+import View from './view/View';
 
 type User = {
   email: string;
@@ -67,6 +69,8 @@ const App: FC = () => {
             />
           )}
           <Route path="/features" element={<Features />} />
+          <Route path="/entry" element={<Entry cookies={cookies} />} />
+          <Route path="/view" element={<View cookies={cookies} />} />
         </Routes>
       </div>
     </BrowserRouter>
